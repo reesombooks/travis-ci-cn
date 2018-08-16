@@ -30,11 +30,11 @@ rvm:
 
 这个默认的配置会执行 `bundle install` 来[安装依赖](https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step)，以及执行 `rake` 来构建项目。
 
-5.  将 `.travis.yml` 提交到 git 上，触发 Travis CI 构建：
+1. 将 `.travis.yml` 提交到 git 上，触发 Travis CI 构建：
 
 > 只有当你的项目提交了 `travis.yml` 文件之后才会在你每一次提交代码时触发构建
 
-6. 通过访问 [travis-ci.com 构建状态页面](https://travis-ci.com/auth)，选择对应的仓库，根据构建命令返回的状态来检查构建的结果[成功与否](https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build)。
+1. 通过访问 [travis-ci.com 构建状态页面](https://travis-ci.com/auth)，选择对应的仓库，根据构建命令返回的状态来检查构建的结果[成功与否](https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build)。
 
 ## 选择不同的编译语言
 
@@ -63,6 +63,44 @@ language: php
 ```
 
 或者从[完整列表](https://docs.travis-ci.com/user/languages/)列表中选择一个。
+
+## 选择基础结构（可选）
+
+确定构建运行基础结构的最佳方式就是设置 `language`。如果你这么做了，那么你将安装默认的基础结构来构建运行（少数例外），基础的运行容器环境是 Ubuntu 14.04 版本。你可以通过添加 `sudo: false` 到 `.travis.yml` 文件中来明确的指定默认的基础结构配置。
+
+* 如果你需要在虚拟机中运行更多的自定义设置，你可以开启 Sudo 配置：
+
+```YAML
+sudo: enabled
+```
+
+* 如果你需要在 macOs 中运行测试，或者你的项目使用的是 Swift 或 Object-C 语言，那么你可以使用我们的 OS X 环境：
+
+```YAML
+os: osx
+```
+
+> 通常情况下即使你在 Mac OS 上开发项目，你也是不需要使用 OS X 环境的，只有当你使用 Swift, Object-C 开发项目或者有用到 macOS 专用软件时，才需要指定 OS X 虚拟环境。
+
+## 不仅仅是运行测试
+
+Travis CI 不仅仅是运行测试，它还可以为你的代码做很多事，比如：
+
+* 部署 [GitHub 页面](https://docs.travis-ci.com/user/deployment/pages/)
+* 在 [Heroku](https://docs.travis-ci.com/user/deployment/heroku/) 上运行应用
+* 更新 [RubyGems](https://docs.travis-ci.com/user/deployment/rubygems/)
+* 发送 [notifications](https://docs.travis-ci.com/user/notifications/)
+
+## 进一步阅读
+
+了解更多
+
+* [自定义你的构建](https://docs.travis-ci.com/user/customizing-the-build)
+* [安全最佳实践](https://docs.travis-ci.com/user/best-practices-security/)
+* [构建版本](https://docs.travis-ci.com/user/build-stages/)
+* [构建模型](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
+* [安装依赖](https://docs.travis-ci.com/user/installing-dependencies)
+* [建立数据库](https://docs.travis-ci.com/user/database-setup/)
 
 
 

@@ -1,3 +1,8 @@
-# My Awesome Book
+# Travis CI
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+# 自动化的测试和部署工具
+
+Travis Ci 可以非常轻松的同步你 Github 的项目以及分分钟进行测试你的代码！
+
+
+
